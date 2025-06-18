@@ -7,7 +7,7 @@ namespace UnitTestProject
         {
             // Arrange
             int a = 2;
-            int b = 3;
+            int b = 2;
 
             // Act
             int result = a + b;
