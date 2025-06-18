@@ -9,6 +9,9 @@ jobs:
     build:
         runs-on: ubuntu-latest
 
+        env:
+            CONNECTIONSTRINGS__DefaultConnection: ${{ vars.DB_CONNECTION }} 
+
         steps:
          - uses: actions/checkout@v4
          - uses: actions/setup-dotnet@v4
@@ -16,3 +19,6 @@ jobs:
             dotnet-version: 8.x
          - run: dotnet build
          - run: dotnet test
+         - name: Check connection string variable
+           run: 'echo "Connection string is: $CONNECTIONSTRINGS__DefaultConnection"'
+        
