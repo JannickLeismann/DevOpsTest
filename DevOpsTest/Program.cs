@@ -16,12 +16,16 @@ namespace DevOpsTest
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+
+            app.UseSwagger();
+            app.UseSwaggerUI();
+
+            app.MapGet("/", context =>
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+                context.Response.Redirect("/swagger");
+                return Task.CompletedTask;
+            });
+            
 
             app.UseHttpsRedirection();
 
