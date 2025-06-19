@@ -1,9 +1,10 @@
-name: CI Build on development branch 
+name: CI Build on development/master branch 
 
 on:
     push:
         branches:
             - development
+            - master
 
 jobs:
     build:
